@@ -1,0 +1,650 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS (Paleta Verde Musgo & Vinho)
+   ========================================================================== */
+:root {
+  --primary-color: #3b5a41;       /* Verde Musgo - Principal / Confiança */
+  --primary-hover: #2d4532;       /* Verde Musgo Escuro - Interações */
+  --secondary-color: #802329;     /* Vinho / Terracota - Afeto / Favoritos */
+  --secondary-hover: #611a1e;     /* Vinho Escuro */
+  --background-site: #f4f6f4;     /* Off-White Clean */
+  --background-card: #ffffff;     /* Branco puro para blocos e cards */
+  --text-main: #2b332c;           /* Cinza grafite muito escuro */
+  --text-muted: #606c61;          /* Cinza médio para subtítulos */
+  --border-color: #dbdedb;        /* Bordas sutis */
+  --error-color: #d9383a;         /* Vermelho para feedbacks de erro */
+  --success-color: #2e7d32;       /* Verde para feedbacks de sucesso */
+  --radius: 12px;                 /* Cantos arredondados modernos */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --transition: all 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--background-site);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* Splash Screen / Loading de Sessão Inicial */
+.splash-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  background-color: var(--background-site);
+}
+
+/* Botões Gerais */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: var(--transition);
+}
+
+/* ==========================================================================
+   2. TELAS DE AUTENTICAÇÃO (Login e Cadastro)
+   ========================================================================== */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #e4e9e4 0%, #f4f6f4 100%);
+}
+
+.auth-card {
+  background-color: var(--background-card);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+}
+
+.auth-card h2 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.auth-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.auth-form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: var(--text-main);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 90, 65, 0.15);
+}
+
+.btn-auth {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 4px 10px rgba(59, 90, 65, 0.2);
+}
+
+.btn-auth:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-auth:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-error-message {
+  background-color: rgba(217, 56, 58, 0.1);
+  color: var(--error-color);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: left;
+  border-left: 4px solid var(--error-color);
+}
+
+.auth-success-message {
+  background-color: rgba(46, 125, 50, 0.1);
+  color: var(--success-color);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: left;
+  border-left: 4px solid var(--success-color);
+}
+
+.auth-footer {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.auth-footer a {
+  color: var(--secondary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   3. TELA PRINCIPAL (Home Layout, Header e Filtros)
+   ========================================================================== */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px 20px;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 40px;
+}
+
+.header-user-info {
+  font-size: 1.1rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-nav-favorites {
+  background-color: transparent;
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-nav-favorites:hover {
+  background-color: rgba(128, 35, 41, 0.05);
+}
+
+.btn-logout {
+  background-color: #e0e4e0;
+  color: var(--text-main);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.btn-logout:hover {
+  background-color: #d2d7d2;
+}
+
+/* Filtro de Busca */
+.search-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.search-section h1 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+.search-form {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  font-size: 1rem;
+  box-shadow: var(--shadow);
+  outline: none;
+  transition: var(--transition);
+}
+
+.search-input:focus {
+  border-color: var(--primary-color);
+}
+
+.btn-search {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(59, 90, 65, 0.15);
+}
+
+.btn-search:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   4. ESTADOS DA INTERFACE (Loading, Erro, Lista Vazia)
+   ========================================================================== */
+.main-content {
+  min-height: 300px;
+}
+
+.loading-container, .error-container, .empty-container, .empty-favorites {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: var(--background-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.loading-container p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.btn-retry, .btn-clear-filter, .btn-explore {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.btn-retry:hover, .btn-clear-filter:hover, .btn-explore:hover {
+  background-color: var(--primary-hover);
+}
+
+.empty-favorites .empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+}
+
+.empty-favorites h2 {
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.empty-favorites p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   5. COMPONENTE REUTILIZÁVEL: PETCARD E GRID
+   ========================================================================== */
+.pets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.pet-card {
+  background-color: var(--background-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pet-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.pet-card-image {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  background-color: #e8ebe8;
+}
+
+.pet-card-info {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.pet-card-info h3 {
+  font-size: 1.3rem;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.pet-card-info p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.pet-card-actions {
+  display: flex;
+  padding: 0 20px 20px 20px;
+  gap: 10px;
+  background-color: var(--background-card);
+}
+
+.btn-details {
+  flex: 1;
+  background-color: #f0f3f0;
+  color: var(--primary-color);
+  padding: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.btn-details:hover {
+  background-color: #e2e8e2;
+}
+
+.btn-favorite {
+  background-color: #fdf5f5;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.btn-favorite:hover {
+  background-color: #fcebeb;
+  color: var(--secondary-color);
+  border-color: rgba(128, 35, 41, 0.2);
+}
+
+.btn-favorite.active {
+  background-color: #fbeae1;
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   6. TELA DE DETALHES DO PET
+   ========================================================================== */
+.details-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px 60px 20px;
+}
+
+.details-header {
+  margin-bottom: 24px;
+}
+
+.btn-back {
+  background-color: transparent;
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.btn-back:hover {
+  color: var(--primary-hover);
+}
+
+.pet-details-card {
+  background-color: var(--background-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.pet-details-image-wrapper {
+  width: 100%;
+  max-height: 450px;
+  overflow: hidden;
+  background-color: #e8ebe8;
+}
+
+.pet-details-image {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.pet-details-info {
+  padding: 40px;
+}
+
+.pet-details-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pet-details-title-row h1 {
+  font-size: 2.4rem;
+  color: var(--primary-color);
+}
+
+.btn-favorite-large {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+}
+
+.btn-favorite-large:hover {
+  background-color: #fdf5f5;
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.btn-favorite-large.active {
+  background-color: #fbeae1;
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+/* Grid de Especificações */
+.pet-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+  background-color: #f8faf8;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.spec-item {
+  font-size: 1rem;
+  color: var(--text-main);
+}
+
+.spec-item strong {
+  color: var(--primary-color);
+}
+
+/* Descrição e Contato */
+.pet-description {
+  margin-bottom: 36px;
+}
+
+.pet-description h3, .pet-contact-section h3 {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+
+.pet-description p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.pet-contact-section {
+  border-top: 1px solid var(--border-color);
+  padding-top: 30px;
+}
+
+.pet-contact-section p {
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.contact-info {
+  background-color: #f4f6f4;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 14px 0 24px 0;
+}
+
+.contact-info p {
+  font-family: monospace;
+  font-size: 1.05rem;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.contact-info p:last-child {
+  margin-bottom: 0;
+}
+
+.btn-adopt {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(128, 35, 41, 0.2);
+  width: 100%;
+}
+
+.btn-adopt:hover {
+  background-color: var(--secondary-hover);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   7. TELA DE FAVORITOS (Layout específico)
+   ========================================================================== */
+.favorites-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px 20px;
+}
+
+.favorites-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.favorites-header h1 {
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+}
+
+/* Responsive fixes adicionais */
+@media (max-width: 600px) {
+  .auth-card {
+    padding: 24px 16px;
+  }
+  .home-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .search-form {
+    flex-direction: column;
+  }
+  .btn-search {
+    padding: 12px 0;
+  }
+  .pet-details-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn-favorite-large {
+    width: 100%;
+    text-align: center;
+  }
+  .pet-details-image {
+    height: 300px;
+  }
+}
