@@ -4,6 +4,8 @@ import { useApp } from '../context/AppContext';
 import { getPets } from '../services/api';
 import { PetCard } from '../components/PetCard';
 
+
+//Principal
 export const Home = () => {
   const navigate = useNavigate();
   const { signOut, user } = useApp();
